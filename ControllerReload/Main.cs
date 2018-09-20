@@ -18,7 +18,7 @@ namespace ControllerReload
         /// <summary>
         /// The second control to press.
         /// </summary>
-        public static Control PressTwo = Config.GetValue("ControllerReload", "PressOne", Control.VehicleHorn);
+        public static Control PressTwo = Config.GetValue("ControllerReload", "PressTwo", Control.Reload);
         /// <summary>
         /// Assembly type for "GTA.ScriptDomain".
         /// </summary>
