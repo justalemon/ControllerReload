@@ -31,3 +31,8 @@ A simple script that allows you to reload ScriptHookVDotNet with a controller.
 ### 1.0.1
 
 * FIX: Now the scripts no longer reload when you use a single button
+
+### 1.1
+
+* DEP: The version of .Net Framework has been lowered from 4.7.2 to 4.5.2
+* DEP: Bumped ScriptHookVDotNet from 2.10.6 to 2.10.9
