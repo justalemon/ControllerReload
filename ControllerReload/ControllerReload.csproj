@@ -14,13 +14,6 @@
     <PackageReference Include="ScriptHookVDotNet3" Version="3.0.4">
       <IncludeAssets>compile</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="ControllerReload.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
