@@ -36,3 +36,9 @@ A simple script that allows you to reload ScriptHookVDotNet with a controller.
 
 * DEP: The version of .Net Framework has been lowered from 4.7.2 to 4.5.2
 * DEP: Bumped ScriptHookVDotNet from 2.10.6 to 2.10.9
+
+
+# 2.0
+* .Net Framework updated to 4.8
+* ScriptHookVDotNet Version 3 Compatibility added
+(Open ScriptHookVDotNet.ini and Set ReloadKey=F10)

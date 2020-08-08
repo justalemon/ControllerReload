@@ -1,7 +1,8 @@
 using GTA;
+using GTA.UI;
 using System;
-using System.Linq;
-using System.Reflection;
+using System.Windows.Forms;
+
 
 namespace ControllerReload
 {
@@ -14,24 +15,15 @@ namespace ControllerReload
         /// <summary>
         /// The first control to press.
         /// </summary>
-        public static Control PressOne = Config.GetValue("ControllerReload", "PressOne", Control.InteractionMenu);
+        public static GTA.Control PressOne = Config.GetValue("ControllerReload", "PressOne", GTA.Control.FrontendRb);
         /// <summary>
         /// The second control to press.
         /// </summary>
-        public static Control PressTwo = Config.GetValue("ControllerReload", "PressTwo", Control.Reload);
-        /// <summary>
-        /// Assembly type for "GTA.ScriptDomain".
-        /// </summary>
-        public static Type AssemblyType = typeof(Script).GetTypeInfo().Assembly.GetType("GTA.ScriptDomain");
-        /// <summary>
-        /// Method used to send keypresses.
-        /// </summary>
-        public static MethodInfo KeypressMethod = KeypressMethod = AssemblyType.GetMethods(BindingFlags.Instance | BindingFlags.Public).FirstOrDefault((MethodInfo x) => x.Name == "DoKeyboardMessage");
-        /// <summary>
-        /// Parameters used to call the function.
-        /// </summary>
-        public static object[] Parameters = new object[] { System.Windows.Forms.Keys.Insert, true, false, false, false };
+        public static GTA.Control PressTwo = Config.GetValue("ControllerReload", "PressTwo", GTA.Control.Reload);
 
+        public static string ScriptHookReloadButton = Config.GetValue("ControllerReload", "ScriptHookReloadButton", "{F10}");
+        
+    
         public ControllerReload()
         {
             Tick += OnTick;
@@ -39,10 +31,10 @@ namespace ControllerReload
 
         public void OnTick(object Sender, EventArgs Args)
         {
-            if (Game.IsControlPressed(2, PressOne) && Game.IsControlPressed(2, PressTwo))
-            {
-                // Thanks StackOverflow for all of this shit
-                KeypressMethod.Invoke(AssemblyType.GetProperty("CurrentDomain").GetValue(null, null), Parameters);
+            if (Game.IsControlPressed(PressOne) == true && Game.IsControlPressed(PressTwo) == true)
+            {                              
+                SendKeys.SendWait(ScriptHookReloadButton);
+                GTA.UI.Notification.Show("Scripts Reloaded!");
             }
         }
     }
