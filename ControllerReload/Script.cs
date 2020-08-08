@@ -94,10 +94,18 @@ namespace ControllerReload
                 return;
             }
 
-            if (Game.IsControlPressed(config.First) && Game.IsControlPressed(config.Second))
+            // Iterate over the controls that need to be pressed
+            foreach (Control control in config.Controls)
             {
-                reloadMethod.Invoke(null, new object[0]);
+                // If is not pressed, return
+                if (!Game.IsControlPressed(control))
+                {
+                    return;
+                }
             }
+
+            // If all of the controls were pressed and we got here, trigger a reload
+            reloadMethod.Invoke(null, new object[0]);
         }
 
         #endregion

@@ -1,5 +1,6 @@
 ﻿using GTA;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace ControllerReload
 {
@@ -8,9 +9,10 @@ namespace ControllerReload
     /// </summary>
     public class Configuration
     {
-        [JsonProperty("first")]
-        public Control First { get; set; } = Control.FrontendRb;
-        [JsonProperty("second")]
-        public Control Second { get; set; } = Control.FrontendCancel;
+        /// <summary>
+        /// The controls that need to be pressed to trigger a reload.
+        /// </summary>
+        [JsonProperty("controls")]
+        public List<Control> Controls { get; set; } = new List<Control>() { Control.FrontendRb, Control.FrontendCancel };
     }
 }
