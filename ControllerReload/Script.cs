@@ -12,23 +12,23 @@ namespace ControllerReload
         /// The Method information of the Reload console command.
         /// </summary>
         private static MethodInfo reloadMethod = null;
-
-        #endregion
-
         /// <summary>
         /// The script configuration.
         /// </summary>
-        public static ScriptSettings Config = ScriptSettings.Load("scripts\\ControllerReload.ini");
+        public static ScriptSettings config = ScriptSettings.Load("scripts\\ControllerReload.ini");
         /// <summary>
         /// The first control to press.
         /// </summary>
-        public static GTA.Control PressOne = Config.GetValue("ControllerReload", "PressOne", GTA.Control.FrontendRb);
+        public static Control PressOne = config.GetValue("ControllerReload", "PressOne", Control.FrontendRb);
         /// <summary>
         /// The second control to press.
         /// </summary>
-        public static GTA.Control PressTwo = Config.GetValue("ControllerReload", "PressTwo", GTA.Control.Reload);
-        
-    
+        public static Control PressTwo = config.GetValue("ControllerReload", "PressTwo", Control.Reload);
+
+        #endregion
+
+        #region Constructors
+
         public ControllerReload()
         {
             // Create a place to store the assembly
@@ -69,15 +69,21 @@ namespace ControllerReload
             // Save it on a field for later use
             reloadMethod = method;
             // And finish with the Tick event
-            Tick += OnTick;
+            Tick += ControllerReload_Tick;
         }
 
-        public void OnTick(object Sender, EventArgs Args)
+        #endregion
+
+        #region Local Events
+
+        private void ControllerReload_Tick(object sender, EventArgs e)
         {
             if (Game.IsControlPressed(PressOne) == true && Game.IsControlPressed(PressTwo) == true)
             {
                 reloadMethod.Invoke(null, new object[0]);
             }
         }
+
+        #endregion
     }
 }
