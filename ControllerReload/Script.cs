@@ -21,7 +21,7 @@ namespace ControllerReload
         /// </summary>
         public static GTA.Control PressTwo = Config.GetValue("ControllerReload", "PressTwo", GTA.Control.Reload);
 
-        public static string ScriptHookReloadButton = Config.GetValue("ControllerReload", "ReloadMethodButton", "{F10}");
+        public static string ScriptHookReloadButton = Config.GetValue("ControllerReload", "ScriptHookReloadButton", "{F10}");
         
     
         public ControllerReload()
