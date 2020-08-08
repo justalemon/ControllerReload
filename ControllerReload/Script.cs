@@ -1,5 +1,8 @@
 using GTA;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
+using System.IO;
 using System.Reflection;
 
 namespace ControllerReload
@@ -13,17 +16,9 @@ namespace ControllerReload
         /// </summary>
         private static MethodInfo reloadMethod = null;
         /// <summary>
-        /// The script configuration.
+        /// The configuration of Controller Reload.
         /// </summary>
-        public static ScriptSettings config = ScriptSettings.Load("scripts\\ControllerReload.ini");
-        /// <summary>
-        /// The first control to press.
-        /// </summary>
-        public static Control PressOne = config.GetValue("ControllerReload", "PressOne", Control.FrontendRb);
-        /// <summary>
-        /// The second control to press.
-        /// </summary>
-        public static Control PressTwo = config.GetValue("ControllerReload", "PressTwo", Control.Reload);
+        public static Configuration config = null;
 
         #endregion
 
@@ -31,6 +26,21 @@ namespace ControllerReload
 
         public ControllerReload()
         {
+            string path = GetRelativeFilePath("ControllerReload.json");
+            // If there is a configuration file, load it
+            if (File.Exists(path))
+            {
+                string contents = File.ReadAllText(path);
+                config = JsonConvert.DeserializeObject<Configuration>(contents);
+            }
+            // If there is none, create a new configuration and save it
+            else
+            {
+                config = new Configuration();
+                string contents = JsonConvert.SerializeObject(config, new StringEnumConverter());
+                File.WriteAllText(path, contents);
+            }
+
             // Create a place to store the assembly
             AssemblyName found = null;
 
@@ -78,7 +88,7 @@ namespace ControllerReload
 
         private void ControllerReload_Tick(object sender, EventArgs e)
         {
-            if (Game.IsControlPressed(PressOne) == true && Game.IsControlPressed(PressTwo) == true)
+            if (Game.IsControlPressed(config.First) && Game.IsControlPressed(config.Second))
             {
                 reloadMethod.Invoke(null, new object[0]);
             }
