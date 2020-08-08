@@ -37,7 +37,7 @@ namespace ControllerReload
             else
             {
                 config = new Configuration();
-                string contents = JsonConvert.SerializeObject(config, new StringEnumConverter());
+                string contents = JsonConvert.SerializeObject(config, Formatting.Indented, new StringEnumConverter());
                 File.WriteAllText(path, contents);
             }
 
