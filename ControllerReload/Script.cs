@@ -88,6 +88,12 @@ namespace ControllerReload
 
         private void ControllerReload_Tick(object sender, EventArgs e)
         {
+            // If the player is not using a controller, return
+            if (Game.LastInputMethod != InputMethod.GamePad)
+            {
+                return;
+            }
+
             if (Game.IsControlPressed(config.First) && Game.IsControlPressed(config.Second))
             {
                 reloadMethod.Invoke(null, new object[0]);
