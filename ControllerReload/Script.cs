@@ -1,4 +1,5 @@
 using GTA;
+using GTA.UI;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -26,18 +27,22 @@ namespace ControllerReload
 
         public ControllerReload()
         {
+            // Create the serializer settings and file path
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.ObjectCreationHandling = ObjectCreationHandling.Replace;
+            settings.Converters.Add(new StringEnumConverter());
             string path = GetRelativeFilePath("ControllerReload.json");
             // If there is a configuration file, load it
             if (File.Exists(path))
             {
                 string contents = File.ReadAllText(path);
-                config = JsonConvert.DeserializeObject<Configuration>(contents);
+                config = JsonConvert.DeserializeObject<Configuration>(contents, settings);
             }
             // If there is none, create a new configuration and save it
             else
             {
                 config = new Configuration();
-                string contents = JsonConvert.SerializeObject(config, Formatting.Indented, new StringEnumConverter());
+                string contents = JsonConvert.SerializeObject(config, Formatting.Indented, settings);
                 File.WriteAllText(path, contents);
             }
 
