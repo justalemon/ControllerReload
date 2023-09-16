@@ -11,8 +11,8 @@ namespace ControllerReload
     {
         #region Fields
 
-        private static MethodInfo reloadMethod = null;
-        private static Configuration config = null;
+        private static MethodInfo reloadMethod;
+        private static Configuration config;
 
         #endregion
 
