@@ -10,13 +10,13 @@ ControllerReload is a simple script for Grand Theft Auto V that allows you to re
 
 ## Installation
 
-Drag and drop all of the files inside of the 7zip into your **scripts** directory.
+Copy all of the files from the compressed file to your **scripts** directory.
 
 ## Usage
 
 After installing the Mod, you can use the following button combination to reload your scripts:
 
-* Xbox 360 and Xbox One Controller: RB and B
+* Xbox 360, One and Series X|S Controller: RB and B
 * DualShock 3 and DualShock 4: R1 and Circle
 * Wii U Gamepad, Joy Cons and Pro Controllers: R and A
 
