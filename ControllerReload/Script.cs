@@ -7,6 +7,9 @@ using Newtonsoft.Json.Converters;
 
 namespace ControllerReload;
 
+/// <summary>
+/// The class controlling the reloads with a controller.
+/// </summary>
 public class ControllerReload : Script
 {
     #region Fields
@@ -18,6 +21,9 @@ public class ControllerReload : Script
     
     #region Constructors
 
+    /// <summary>
+    /// Creates a new script.
+    /// </summary>
     public ControllerReload()
     {
         JsonSerializerSettings settings = new JsonSerializerSettings();
