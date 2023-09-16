@@ -69,14 +69,14 @@ namespace ControllerReload
             }
 
             reloadMethod = method;
-            Tick += ControllerReload_Tick;
+            Tick += OnTick;
         }
 
         #endregion
 
         #region Event Functions
 
-        private void ControllerReload_Tick(object sender, EventArgs e)
+        private void OnTick(object sender, EventArgs e)
         {
             if (Game.LastInputMethod != InputMethod.GamePad)
             {
