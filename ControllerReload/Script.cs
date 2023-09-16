@@ -10,7 +10,7 @@ namespace ControllerReload
 {
     public class ControllerReload : Script
     {
-        #region Private Fields
+        #region Fields
 
         private static MethodInfo reloadMethod = null;
         private static Configuration config = null;
@@ -74,7 +74,7 @@ namespace ControllerReload
 
         #endregion
 
-        #region Local Events
+        #region Event Functions
 
         private void ControllerReload_Tick(object sender, EventArgs e)
         {
