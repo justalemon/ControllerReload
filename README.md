@@ -1,12 +1,12 @@
-# ControllerReload<br>[![AppVeyor][appveyor-img]][appveyor-url] [![Patreon][patreon-img]][patreon-url] [![PayPal][paypal-img]][paypal-url] [![Discord][discord-img]][discord-url]
+# ControllerReload<br>[![GitHub Actions][actions-img]][actions-url] [![Patreon][patreon-img]][patreon-url] [![PayPal][paypal-img]][paypal-url] [![Discord][discord-img]][discord-url]
 
 ControllerReload is a simple script for Grand Theft Auto V that allows you to reload the scripts loaded in ScriptHookVDotNet by pressing a specific number of controller buttons. It reloads the scripts by simulating the `Reload()` console command. You can configure the numbers of buttons that you need to press.
 
 ## Download
 
-* [GitHub](https://github.com/justalemon/ControllerReload/releases)
 * [5mods](https://www.gta5-mods.com/scripts/controllerreload)
-* [AppVeyor](https://ci.appveyor.com/project/justalemon/controllerreload) (experimental)
+* [GitHub Releases](https://github.com/justalemon/ControllerReload/releases)
+* [GitHub Actions](https://github.com/justalemon/ControllerReload/actions) (experimental versions)
 
 ## Installation
 
@@ -45,6 +45,8 @@ To change the buttons, specify any of the names in the [Control enum](https://gi
 }
 ```
 
+[actions-img]: https://img.shields.io/github/actions/workflow/status/justalemon/ControllerReload/main.yml?branch=master&label=actions
+[actions-url]: https://github.com/justalemon/ControllerReload/actions
 [appveyor-img]: https://img.shields.io/appveyor/build/justalemon/controllerreload?label=appveyor
 [appveyor-url]: https://ci.appveyor.com/project/justalemon/controllerreload
 [patreon-img]: https://img.shields.io/badge/support-patreon-FF424D.svg
