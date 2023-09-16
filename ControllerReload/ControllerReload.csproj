@@ -4,10 +4,17 @@
     <TargetFramework>net48</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <DefineConstants>SHVDN3</DefineConstants>
-    <Version>2.0</Version>
-    <OutputPath>..\bin\$(Configuration)\</OutputPath>
+    <AssemblyName>ControllerReload</AssemblyName>
+    <DefineConstants>SHVDN3,CLIENT</DefineConstants>
+    <Version>0.0.1</Version>
+    <OutputPath>$(SolutionDir)bin\$(Configuration)\</OutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(OutputPath)\$(AssemblyName).xml</DocumentationFile>
     <PlatformTarget>x64</PlatformTarget>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
